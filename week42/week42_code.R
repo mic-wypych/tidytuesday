@@ -29,7 +29,7 @@ fish.plot <- fish.data %>%
   geom_vline(xintercept = 1958, color = "grey20", linetype = "dashed") +
   geom_vline(xintercept = 1996, color = "grey20", linetype = "dashed") +
   annotate("label", x = 1970, y = 50.520801, label = "sharp rise in industrial\n fishing from 1959", color = "grey10", fill = "grey60", size = 8, family = "Roboto Light") +
-  annotate("label", x = 1988, y = 90, label = "industrial fishing \nstarted do decline from 1996?", color = "grey10", fill = "grey60", size = 8, family = "Roboto Light") +
+  annotate("label", x = 1988, y = 90, label = "industrial fishing \nstarted to decline from 1996?", color = "grey10", fill = "grey60", size = 8, family = "Roboto Light") +
   annotate("label", x = 1970, y = 120, label = "One of the reasons behind rapid growth\nin industrial fishing may be the introductionof nylon nets.\nSynthethic fibers were introduced in the 1960s\nand banned in 1993", color = "grey10", fill = "grey60", size = 8, family = "Roboto Light") +
   geom_curve(
     aes(x = 1966, y = 50.520801, xend = 1958, yend = 43.000000),
