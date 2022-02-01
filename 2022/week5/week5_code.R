@@ -83,12 +83,13 @@ predictors <- breed_traits %>%
   scale_color_manual(values = palette) +
   coord_flip() +
   theme_tufte() +
-  labs(x = "", y = "") +
+  labs(x = "", y = "", caption ="Note: The entire model explained around 16% of variance in rank.\nPartial Cohen's f for playfulness was equal to .29 which means the study had sufficient power to detect such an effect.\n There were also no serious problems with collinearity (highest vif for Mental Stimulation Needs was equal to 2.29") +
   theme(legend.position = "none",
         axis.text = element_text(size = 20, color = "white"),
         axis.title = element_text(size = 20, color = "white"),
         plot.title = element_text(size = 30, color = "white"),
-        plot.subtitle = element_text(size = 20, color = "white"))
+        plot.subtitle = element_text(size = 20, color = "white"),
+        plot.caption = element_text(size = 10, color = "white"))
 predictors
 
 ####legend plot####
