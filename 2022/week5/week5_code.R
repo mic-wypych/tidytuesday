@@ -130,7 +130,7 @@ final <- dogs_trait_plot + legend + predictors +
                   The plot on the left shows the traits of these dogs on a scale from \u26aa to \u26aa\u26aa\u26aa\u26aa\u26aa <br> The plot on the right shows which traits are best predictors of rank.
                   If the horiontal lines do not cross the dashed vertical one,<br> then a given trait is a significant predictor of rank
                   When taking into account all other traits, <span style = 'color:#9B2226'>playfulness</span> seems to be the strongest predictor of rank</p>",
-                  caption = "Visualization Michał Wypych | #Tidytuesday 2022 week 5 | data: Kaggle",
+                  caption = "Visualization Michał Wypych | #Tidytuesday 2022 week 5 | data: American Kennel Club",
                   theme = theme(
                     plot.title = ggtext::element_markdown(size = 40, color = "white", family = "roboto"),
                     plot.subtitle = ggtext::element_markdown(size = 20, color = "white",lineheight=1.2, family = "roboto"),
