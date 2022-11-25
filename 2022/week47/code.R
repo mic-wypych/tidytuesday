@@ -29,7 +29,7 @@ final <- museums_type %>%
   geom_stream() +
   annotate(geom = "text", x = 1930, y = -12, size = 5, family = "Lato", label = "War museums first got popular\nin 1930s") +
   annotate(geom = "text", x = 1940, y = 20, size = 5, family = "Lato", label = "Building museums\nboomed from 40s to 50s") +
-  annotate(geom = "text", x = 1985, y = -7.5, size = 5, family = "Lato", label = "Local and Industry museums\nwere most popular in the 80s") +
+  annotate(geom = "text", x = 1985, y = -7.5, size = 5, family = "Lato", label = "Industry and local museums\nwere most popular in the 80s") +
   annotate(geom = "text", x = 2010, y = -20, size = 5,family = "Lato", label = "War museums got more\npopular again in 1980s") +
   annotate(geom = "text", x = 2010, y = 20, size = 5,family = "Lato", label = "Number of art museum openings\nwas growing steadily") +
   geom_segment(aes(x = 1930, y = -10, xend = 1930, yend = -5), color = "grey20") +
