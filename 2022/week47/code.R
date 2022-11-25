@@ -31,7 +31,7 @@ final <- museums_type %>%
   annotate(geom = "text", x = 1940, y = 20, size = 5, family = "Lato", label = "Building museums\nboomed from 40s to 50s") +
   annotate(geom = "text", x = 1985, y = -7.5, size = 5, family = "Lato", label = "Local and Industry museums\nwere most popular in the 80s") +
   annotate(geom = "text", x = 2010, y = -20, size = 5,family = "Lato", label = "War museums got more\npopular again in 1980s") +
-  annotate(geom = "text", x = 2010, y = 20, size = 5,family = "Lato", label = "Number of art museum openings\nwas growing steadily ontil 1990s") +
+  annotate(geom = "text", x = 2010, y = 20, size = 5,family = "Lato", label = "Number of art museum openings\nwas growing steadily") +
   geom_segment(aes(x = 1930, y = -10, xend = 1930, yend = -5), color = "grey20") +
   geom_point(aes(x = 1930, y = -5), size = 2, alpha = .2, fill = NA, color = "grey20") +
   geom_segment(aes(x = 1942, y = 18, xend = 1942, yend = 5), color = "grey20") +
