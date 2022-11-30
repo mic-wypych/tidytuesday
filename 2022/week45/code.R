@@ -42,7 +42,9 @@ countryland <- state_stations %>%
   guides(size=guide_legend(title = "No. of stations"), color = "none") +
   coord_cartesian(clip = "off") +
   theme_minimal() +
-  labs(title = "Countryland", subtitle = "In majority of states the largest share of radio stations have <span style = 'color:#e63946'>**Country**</span> format.", x = "", y = "") +
+  labs(title = "Countryland",
+       caption = "#Tidytuesday 2022 Week 45 | data from Wikipedia | @michal_wypych",
+       subtitle = "In majority of states the largest share of radio stations have <span style = 'color:#e63946'>**Country**</span> format.", x = "", y = "") +
   theme(panel.grid.major = element_blank(),
         legend.position = "top",
         axis.text = element_blank(),
@@ -50,6 +52,7 @@ countryland <- state_stations %>%
         legend.text = element_text(family = "Roboto"),
         plot.title = element_text(family = "Roboto", size = 40, face = "bold"),
         plot.subtitle = element_markdown(family = "Roboto", size = 12, face = "bold"),
+        plot.caption = element_text(size = 10, family = "Roboto", color = "grey60"),
         strip.text = element_text(face = "bold", family = "Roboto", size = 7),
         plot.background = element_rect(fill = "#edf2f4", color = "#edf2f4"))
   
