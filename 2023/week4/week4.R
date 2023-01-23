@@ -34,4 +34,4 @@ plot2 <- loadouts %>%
         panel.grid = element_blank(),
         plot.margin = margin(20,20,20,20))
 plot2  
-ggsave('C:/Users/wypyc/Documents/GitHub/tidytuesday/2023/week4/week4.png', plot2, width = 8, height = 6)
+ggsave('week4.png', plot2, width = 8, height = 6)
