@@ -33,7 +33,7 @@ plot <- colors_seped %>%
   coord_polar() +
   scale_size(range = c(.1, 10)) +
   theme_void() +
-  labs(title = 'Colors in Bob Ross') +
+  labs(title = 'Colors of Bob Ross') +
   theme(legend.position = 'none',
         plot.title = element_text(hjust = .5,vjust = -1.25, size = 100, family = font, color = '#6d6875'),
         plot.background = element_rect(fill = 'white', color = 'white'))
