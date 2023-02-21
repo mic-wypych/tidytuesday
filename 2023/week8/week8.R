@@ -19,7 +19,7 @@ hexes <- unique(colors_seped$color_hex) %>% str_remove_all(' ')
 
 font <- 'Spectral'
 
-#chappy little accident (I literally got this plot by accident at first lol)
+#happy little accident (I literally got this plot by accident at first lol)
 plot <- colors_seped %>%
   group_by(season) %>%
   count(color_hex) %>%
