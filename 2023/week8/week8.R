@@ -36,7 +36,7 @@ plot <- colors_seped %>%
   labs(title = 'Colors of Bob Ross', caption = "#Tidytuesday 2023 Week 8 | data from {BobRossColors} R package | @michal_wypych") +
   theme(legend.position = 'none',
         plot.title = element_text(hjust = .5,vjust = -1.25, size = 100, family = font, color = '#6d6875'),
-        plot.caption = element_text(size = 10, family = font, color = "grey60"),
+        plot.caption = element_text(size = 15, family = font, color = "grey60"),
         plot.background = element_rect(fill = 'white', color = 'white'))
 plot  
 
