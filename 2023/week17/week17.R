@@ -1,7 +1,5 @@
 library(tidyverse)
 library(showtext)
-library(gganimate)
-library(ggchicklet)
 
 font_add_google("Oswald")
 showtext_auto()
