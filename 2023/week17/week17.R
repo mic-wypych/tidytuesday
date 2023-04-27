@@ -28,13 +28,13 @@ times <- winners %>%
   coord_polar() +
   facet_wrap(~Year + Category) +
   theme_void() +
-  labs(y = NULL,x = NULL, title = "Finishing times of winners of London Marathon",
+  labs(y = NULL,x = NULL, title = "Winning times in London Marathon",
        caption = "#Tidytuesday 2023 Week 17 | data @nrennie35 | @michal_wypych") +
   theme(axis.text.y = element_blank(),
         legend.position = "none",
         plot.background = element_rect(fill = "white", color = "white"),
         strip.text = element_text(size = 20, family = "Oswald"),
-        plot.caption = element_text(size = 10, color = "grey20", family = "Oswald"),
+        plot.caption = element_text(size = 20, color = "grey20", family = "Oswald"),
         plot.title = element_text(size = 60, hjust = .5, family = "Oswald", margin = margin(t = 10, b = 10)))
 
   
@@ -67,7 +67,7 @@ times2 <- winners %>%
         legend.position = "none",
         plot.background = element_rect(fill = "white", color = "white"),
         strip.text = element_text(size = 20, family = "Oswald"),
-        plot.caption = element_text(size = 10, color = "grey20", family = "Oswald"),
+        plot.caption = element_text(size = 20, color = "grey20", family = "Oswald"),
         plot.title = element_text(size = 60, hjust = .5, family = "Oswald", margin = margin(t = 10, b = 10)))
 
 
