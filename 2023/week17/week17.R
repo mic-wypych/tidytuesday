@@ -61,7 +61,7 @@ times2 <- winners %>%
   coord_polar() +
   facet_wrap(~Year + Category) +
   theme_void() +
-  labs(y = NULL,x = NULL, title = "Finishing times of winners of London Marathon",
+  labs(y = NULL,x = NULL, title = "Winning times in London Marathon",
        caption = "#Tidytuesday 2023 Week 17 | data @nrennie35 | @michal_wypych") +
   theme(axis.text.y = element_blank(),
         legend.position = "none",
