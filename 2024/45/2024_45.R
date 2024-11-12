@@ -108,7 +108,7 @@ female_pres_plot <- democracy_data %>%
   labs(x = NULL, y = "number of countries") +
   theme_45()
 
-final_plot <- suffrage_plot/female_pres_plot + plot_annotation(title = "Having suffrage vs having women presidents", subtitle = str_wrap("Among presidential political systems suffrage has become widespread in the second half of 20th Century but the number of women presidents remains very low. the first female president in the dataset is Isabel Peron elected in Argentina in 1975.", width = 100), caption = "#Tidytuesday 2023 Week 8 | data from {democracyData} R package | @michal_wypych", theme = theme_45())
+final_plot <- suffrage_plot/female_pres_plot + plot_annotation(title = "Having suffrage vs having women presidents", subtitle = str_wrap("Among presidential political systems suffrage has become widespread in the second half of 20th Century but the number of women presidents remains very low. the first female president in the dataset is Isabel Peron elected in Argentina in 1975.", width = 100), caption = "#Tidytuesday 2024 Week 45 | data from {democracyData} R package | @michal_wypych", theme = theme_45())
 
 
 ggsave(glue("C:/Users/User/Documents/GitHub/tidytuesday/2024/45/week_45.png"), final_plot, width = 8, height = 6, units = "in", dpi = 320)
