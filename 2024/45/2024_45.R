@@ -5,7 +5,8 @@ library(ggplot2)
 library(showtext)
 library(patchwork)
 library(geomtextpath)
-
+library(glue)
+library(stringr)
 
 font_add_google("Ubuntu Condensed")
 font_add_google("Cabin Condensed")
