@@ -30,8 +30,8 @@ data_regimes <- data %>%
   select(country_name, year, regime)
 
 
-title <- "Regime changes across decades"
-subtitle <- "The plot shows changes in regime types (<span style = 'color:#ef233c;'>communist</span>, <span style = 'color:#d5f2e3;'>democracy</span>, <span style = 'color:#2c6e49;'>monarchy</span>, <span style = 'color:#a7c957;'>interim</span> and <span style = 'color:#73ba9b;'>other</span>)<br>from 1950 to 2020. We can see that monarchies largely stayed unchanged.There were two moments in XXth Century<br>when many communist countries turned democratic: 1989 and 1999. For many countries we do not have data because <br>either they did not exist in a given year or we lack information on their regime.Since many countries ceased to exist<br>or appeared in XXth Century (especially due to decolonization and fall of the Soviet block) the other category is so large."
+title <- "Regime changes across decades\na tale about missing data"
+subtitle <- "The plot shows changes in regime types (<span style = 'color:#ef233c;'>communist</span>, <span style = 'color:#d5f2e3;'>democracy</span>, <span style = 'color:#2c6e49;'>monarchy</span>, <span style = 'color:#a7c957;'>interim</span> and <span style = 'color:#73ba9b;'>other/no data</span>)<br>from 1950 to 2020. We can see that monarchies largely stayed unchanged.There were two moments in XXth Century<br>when many communist countries turned democratic: 1989 and 1999. For many countries we do not have data because <br>either they did not exist in a given year or we lack information on their regime. Many countries ceased to exist<br>or appeared in XXth Century (especially due to decolonization and fall of the Soviet block) the other/no data category is so large.<br>However, there is clearly much more missing data from continents like Africa or Americas."
 caption <- "Data from {democracyData} | @michal_wypych"
 
 
