@@ -106,9 +106,11 @@ p_df <- expanded_df %>%
 
 final <- p_at + p_df + p_hp + plot_annotation(title = "Evolution of Power: Tracking the Top Pokémon by Attack, Defense, and HP Across Generations",
                                      subtitle = str_wrap("In these charts, a generation refers to the cumulative set of all Pokémon available up to that point. For example, Generation 3 includes all Pokémon introduced in Generations 1, 2, and 3. Each bump chart shows how the top-ranked Pokémon for Attack, Defense, and HP evolve as new Pokémon are introduced. In Attack generations form 1 to 4 introduced a new strongest Pokémon. In Defense since generation 2 Schuckle is strongest and since generation 3 regirock was 2nd and Steelix 3rd. In HP Since generation 2 Blissey is on top and Chansey is 2nd. Top HP Pokémons are dominated by normal type, top defense are more varied: bug, rock, steel and water. Top attack Pokémons are dragon, ground, normal and rock", 120),
+                                     caption = "data: {pokemon} | 03-04-2025 | Michał Wypych",
                                      theme = theme(text = element_text(family = font, color = "#ffb703"),
                                                    plot.title = element_text(family = font, color = "#ffb703", size = 15, margin = margin(10,0,10,0)),
                                                    plot.subtitle = element_text(family = font, color = "#ffb703", size = 8, margin = margin(0,0,20,0)),
+                                                   plot.caption = element_text(family = font, color = "#ffb703", size = 4),
                                                    plot.background = element_rect(fill = "#023047", color = "#023047"))                                     )
 
 
