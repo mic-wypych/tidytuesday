@@ -11,7 +11,7 @@ gdtools::register_gfont("Poppins")
 
 font <- "Poppins"
 
-care_stashowtextcare_state <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-08/care_state.csv')
+care_state <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-08/care_state.csv')
 
 pal<- c("#204632", "#719489","#307179",
                  "#579AA2", "#8a1f2f", "#ab3148", "#8A5133", "#C3834B", "#552b3f", "#7f4464")
@@ -71,4 +71,6 @@ plot_int <- girafe(
   )
 )
 
-htmltools::save_html(plot_int, "state_medicaid.html")
+htmltools::save_html(plot_int, "Documents/state_medicaid.html")
+
+htmlwidgets::saveWidget(plot_int,'Documents/state_medicaid.html', selfcontained = TRUE) 
