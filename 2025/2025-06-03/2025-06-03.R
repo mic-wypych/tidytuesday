@@ -42,10 +42,6 @@ coauth <- coauth %>%
   mutate(bookshelf = str_remove_all(gutenberg_bookshelf, "[Bb]rowsing[: ]*")) %>%
   mutate(main_shelf = str_extract(bookshelf, "^[^/]*"))
 
-coauth %>%
-  count(gutenberg_id) %>%
-  ggplot(aes(x = n)) +
-  geom_histogram()
 
 
 
@@ -82,7 +78,7 @@ calc_pairwise_diffs <- function(row_values, col_names) {
 }
 
 
-calculate_pairwise_differences <- function(df, cols = paste0("a_", 1:16)) {
+calculate_pairwise_differences <- function(df, cols = paste0("a_", 1:12)) {
   # Select the specified columns
   col_data <- df %>% select(all_of(cols))
   
