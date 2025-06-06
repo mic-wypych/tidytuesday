@@ -61,7 +61,10 @@ calc_pairwise_diffs <- function(row_values, col_names) {
   valid_idx <- !is.na(row_values)
   valid_values <- row_values[valid_idx]
   valid_names <- col_names[valid_idx]
-
+  
+  if (length(valid_values) < 2) {
+    return(tibble(col1 = character(0), col2 = character(0), difference = numeric(0)))
+  }
 
   n <- length(valid_values)
   pairs <- combn(n, 2, simplify = FALSE)
@@ -79,7 +82,7 @@ calc_pairwise_diffs <- function(row_values, col_names) {
 }
 
 
-calculate_pairwise_differences <- function(df, cols = paste0("a_", 1:12)) {
+calculate_pairwise_differences <- function(df, cols = paste0("a_", 1:16)) {
   # Select the specified columns
   col_data <- df %>% select(all_of(cols))
   
@@ -108,7 +111,7 @@ coauth <- coauth %>%
 age_diffs <-coauth %>%
   group_by(gutenberg_id) %>%
   mutate(auth_pos = paste0("a_",1:n())) %>%
-  pivot_wider(id_cols = "gutenberg_id", names_from = auth_pos, values_from = birthdate) %>%
+  pivot_wider(id_cols = "gutenberg_id", names_from = auth_pos, values_from = birthdate.x) %>%
   calculate_pairwise_differences() %>%
   mutate(difference = abs(difference))
   
@@ -119,10 +122,10 @@ pal_agediffs <- pal_hist(2626)
 
 p_agediffs <- age_diffs %>%
   ggplot(aes(x = difference+ 1)) +
-  geom_histogram(binwidth = 1, linewidth = 1, aes(fill = after_stat(factor(x))), color = "#392619") +
+  geom_histogram(binwidth = 1, linewidth = .7, aes(fill = after_stat(factor(x))), color = "#392619") +
   geom_vline(aes(xintercept = mean(difference)), linewidth = 1.5, color = "#6f1d1b") +
-  annotate(geom = "text", x = 1750, y = 30, label = "One person listed Homer\nas coauthor with\nage difference of 2625!", family = font) +
-  annotate(geom = "text", x = 50, y = 130, label = paste0("Mean age difference is ", round(mean(age_diffs$difference), 2), " years"), family = font) +
+  annotate(geom = "text", x = 1700, y = 30, label = "One person listed Homer\nas coauthor with\nage difference of 2625!", family = font, lineheight = .5) +
+  annotate(geom = "text", x = 60, y = 130, label = paste0("Mean age difference is ", round(mean(age_diffs$difference), 2), " years"), family = font) +
   scale_y_continuous(expand = c(0,0)) +
   scale_x_continuous(breaks = c(1, 6, 11, 51, 101, 1001, 2001), 
                      labels =c(1, 6, 11, 51, 101, 1001, 2001) - 1,
@@ -169,12 +172,16 @@ p_treemap <- coauth %>%
                     fontface = "bold",
                     size = 15) +
   scale_fill_manual(values = pal) +
-  theme(legend.position = "none")
+  theme(legend.position = "none",
+        plot.background = element_rect(fill = "wheat", color = "wheat"))
 
 
 
-p_agediffs + inset_element(p_treemap, left = .6, bottom = .6, right = 1, top = 1) +
+final <- p_agediffs + inset_element(p_treemap, left = .6, bottom = .6, right = 1, top = 1) +
   plot_annotation(title = title, caption = caption, subtitle = subtitle,
                   theme = theme(text = element_text(family = font),
                                 plot.title = element_text(family = font, size = 30),
-                                plot.subtitle = element_text(family = font, size = 15, lineheight = .5)))
+                                plot.subtitle = element_text(family = font, size = 15, lineheight = .2),
+                                plot.background = element_rect(fill = "wheat", color = "wheat")))
+
+ggsave("2025-06-03.png", final, width = 6, height = 4, bg = "wheat")
