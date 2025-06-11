@@ -1,0 +1,46 @@
+index,Number,President,Colleges,Birth City,Birth State,Birth Date,Death City,Death State,Death Date,Left office,Took office,Party
+0,1,George Washington,The College of William and Mary,Mount Vernon,VA,2/22/1732,Mount Vernon,VA,12/14/1799,3/4/1797,4/30/1789,Independent
+1,2,John Adams,Harvard University,Quincy,MA,10/30/1735,Quincy,MA,7/4/1826,3/4/1801,3/4/1797,Federalist Party
+2,3,Thomas Jefferson,The College of William and Mary,Shadwell,VA,4/13/1743,Charlottesville,VA,7/4/1826,3/4/1809,3/4/1801,Democratic - Republican Party
+3,4,James Madison,Princeton University,Port Conway,VA,3/16/1751,Orange,VA,6/28/1836,3/4/1817,3/4/1809,Democratic - Republican Party
+4,5,James Monroe,The College of William and Mary,Monroe Hall,VA,4/28/1758,New York,NY,7/4/1831,3/4/1825,3/4/1817,Democratic - Republican Party
+5,6,John Quincy Adams,"Harvard University, Leiden University",Quincy,MA,7/11/1767,Washington,DC,2/23/1848,3/4/1829,3/4/1825,Democratic - Republican Party
+6,7,Andrew Jackson,Did Not Graduate,Waxhaws,NC,3/15/1767,Nashville,TN,6/8/1845,3/4/1837,3/4/1829,Democratic Party
+7,8,Martin Van Buren,Did Not Graduate,Kinderhook,NY,12/5/1782,Kinderhook,NY,7/24/1862,3/4/1841,3/4/1837,Democratic Party
+8,9,William Henry Harrison,"Hampden–Sydney College, University of Pennsylvania",Charles City Co.,VA,2/9/1773,Washington,DC,4/4/1841,4/4/1841,3/4/1841,Whig Party
+9,10,John Tyler,The College of William and Mary,Charles City Co.,VA,3/29/1790,Richmond,VA,1/18/1862,3/4/1845,4/4/1841,Whig Party
+10,11,James K. Polk,University of North Carolina at Chapel Hill,Mecklenburg Co.,NC,11/2/1795,Nashville,TN,6/15/1849,3/4/1849,3/4/1845,Democratic Party
+11,12,Zachary Taylor,Did Not Graduate,Orange County,VA,11/24/1784,Washington,DC,7/9/1850,7/9/1850,3/4/1849,Whig Party
+12,13,Millard Fillmore,Did Not Graduate,Cayuga Co.,NY,1/7/1800,Buffalo,NY,3/8/1874,3/4/1853,7/9/1850,Whig Party
+13,14,Franklin Pierce,"Bowdoin College, Northampton Law School",Hillsborough,NH,11/23/1804,Concord,NH,10/8/1869,3/4/1857,3/4/1853,Democratic Party
+14,15,James Buchanan,Dickinson College,Cove Gap,PA,4/23/1791,Lancaster,PA,6/1/1868,3/4/1861,3/4/1857,Democratic Party
+15,16,Abraham Lincoln,Did Not Graduate,LaRue Co.,KY,2/12/1809,Washington,DC,4/15/1865,4/15/1865,3/4/1861,Republican Party
+16,17,Andrew Johnson,Did Not Graduate,Raleigh,NC,12/29/1808,Elizabethton,TN,7/31/1875,3/4/1869,4/15/1865,Democratic Party
+17,18,Ulysses S. Grant,United States Military Academy,Point Pleasant,OH,4/27/1822,Wilton,NY,7/23/1885,3/4/1877,3/4/1869,Republican Party
+18,19,Rutherford B. Hayes,"Harvard University, Kenyon College",Delaware,OH,10/4/1822,Fremont,OH,1/17/1893,3/4/1881,3/4/1877,Republican Party
+19,20,James A. Garfield,"Hiram College, Williams College",Cuyahoga Co.,OH,11/19/1831,Elberon,NJ,9/19/1881,9/19/1881,3/4/1881,Republican Party
+20,21,Chester A. Arthur,"State and National Law School, Union College",Fairfield,VT,10/5/1829,New York,NY,11/18/1886,3/4/1885,9/19/1881,Republican Party
+21,22,Grover Cleveland,Did Not Graduate,Caldwell,NJ,3/18/1837,Princeton,NJ,6/24/1908,3/4/1889,3/4/1885,Democratic Party
+22,23,Benjamin Harrison,Miami University,North Bend,OH,8/20/1833,Indianapolis,IN,3/13/1901,3/4/1893,3/4/1889,Republican Party
+23,24,Grover Cleveland,Did Not Graduate,Caldwell,NJ,3/18/1837,Princeton,NJ,6/24/1908,3/4/1897,3/4/1893,Democratic Party
+24,25,William McKinley,Allegheny College,Niles,OH,1/29/1843,Buffalo,NY,9/14/1901,9/14/1901,3/4/1897,Republican Party
+25,26,Theodore Roosevelt,"Columbia Law School, Harvard University",New York,NY,10/27/1858,Oyster Bay,NY,1/6/1919,4/3/1909,9/14/1901,Republican Party
+26,27,William Howard Taft,"University of Cincinnati, Yale University",Cincinnati,OH,9/15/1857,Washington,DC,3/8/1930,4/3/1913,4/3/1909,Republican Party
+27,28,Woodrow Wilson,"Davidson College, Johns Hopkins University, Princeton University, University of Virginia",Staunton,VA,12/28/1856,Washington,DC,2/3/1924,4/3/1921,4/3/1913,Democratic Party
+28,29,Warren G. Harding,Ohio Central College,Morrow County,OH,11/2/1865,San Francisco,CA,8/2/1923,2/8/1923,4/3/1921,Republican Party
+29,30,Calvin Coolidge,Amherst College,Plymouth,VT,7/4/1872,Northampton,MA,1/5/1933,4/3/1929,2/8/1923,Republican Party
+30,31,Herbert Hoover,Stanford University,West Branch,IA,8/10/1874,New York,NY,10/20/1964,4/3/1933,4/3/1929,Republican Party
+31,32,Franklin D. Roosevelt,"Columbia University, Harvard University",Hyde Park,NY,1/30/1882,Warm Springs,GA,4/12/1945,4/12/1945,4/3/1933,Democratic Party
+32,33,Harry S. Truman,"Spalding's Commercial College, University of Kansas City School of Law",Lamar,MO,5/8/1884,Kansas City,MO,12/26/1972,1/20/1953,4/12/1945,Democratic Party
+33,34,Dwight D. Eisenhower,"U.S. Military Academy, United States Army Command and General Staff College, United States Army Industrial College, United States Army War College",Denison,TX,10/14/1890,Washington,DC,3/28/1969,1/20/1961,1/20/1953,Republican Party
+34,35,John F. Kennedy,"Harvard University, London School of Economics, Princeton University",Brookline,MA,5/29/1917,Dallas,TX,11/22/1963,11/22/1963,1/20/1961,Democratic Party
+35,36,Lyndon B. Johnson,"Georgetown University, Texas State University",Stonewall,TX,8/27/1908,Stonewall,TX,1/22/1973,1/20/1969,11/22/1963,Democratic Party
+36,37,Richard Nixon,"Duke University, Whittier College",Yorba Linda,CA,1/9/1913,New York,NY,4/22/1994,9/8/1974,1/20/1969,Republican Party
+37,38,Gerald Ford,"University of Michigan, Yale University",Omaha,NE,7/14/1913,Rancho Mirage,CA,12/26/2006,1/20/1977,9/8/1974,Republican Party
+38,39,Jimmy Carter,"Georgia Institute of Technology, Georgia Southwestern College, U.S. Naval Academy, Union College",Plains,GA,10/1/1924,,,,1/20/1981,1/20/1977,Democratic Party
+39,40,Ronald Reagan,Eureka College,Tampico,IL,2/6/1911,Los Angeles,CA,6/5/2004,1/20/1989,1/20/1981,Republican Party
+40,41,George H. W. Bush,Yale University,Milton,MA,6/12/1924,Houston,TX,11/30/2018,1/20/1993,1/20/1989,Republican Party
+41,42,Bill Clinton,"Georgetown University, University of Oxford, Yale University",Hope,AR,8/19/1946,,,,1/20/2001,1/20/1993,Democratic Party
+42,43,George W. Bush,"Harvard University, Yale University",New Haven,CT,7/6/1946,,,,1/20/2009,1/20/2001,Republican Party
+43,44,Barack Obama,"Columbia University, Harvard University, Occidental College",Honolulu,HI,8/4/1961,,,,1/20/2017,1/20/2009,Democratic Party
+44,45,Donald J. Trump,University of Pennsylvania,New York,NY,6/14/1946,,,,,1/20/2017,Republican Party
