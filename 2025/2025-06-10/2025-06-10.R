@@ -17,13 +17,11 @@ uspres <- read_csv("GitHub/tidytuesday/2025/2025-06-10/us_presidents.csv")
 
 uspres$start <- as_date(uspres$`Took office`, format = "%m/%d/%Y")
 uspres$end <- as_date(uspres$`Left office`, format = "%m/%d/%Y")
-#ok so the dates are a mess
 
 uspres <- uspres %>%
   rowwise() %>%
   mutate(mid = mean(c(start, end), na.rm = T))
 
-# 1. like over 2k don't parse properly
 
 title <- "US Judge appointments by president and party"
 subtitle <- str_wrap("Presidents have the right to appoint judges in the US 
@@ -76,7 +74,6 @@ final <- judges_appointments %>%
         plot.title = element_text(size = 35, family = font, face = "bold"),
         plot.subtitle = element_text(size = 15, family = font, lineheight = .5))
 
-# add names of presidents with their ruling dates
 
 
 
