@@ -33,7 +33,7 @@ subtitle <- str_wrap("Presidents have the right to appoint judges in the US
                      XIX Century has seen much less appointments than later periods.
                      Ronald Reagan appointed the most judges (in both terms combined) 
                      - 387, closely followed by Bill Clinton (383), 
-                     George W. Bush (328), Barack Obama (281) and Jimmy Carter (267)", 150)
+                     George W. Bush (328), Barack Obama (281) and Jimmy Carter (267).", 160)
 caption <- "Tidytuesday 2025-06-10 | data on juges from {historydata}; data on US president terms from Kaggle US president dataset | Michał Wypych "
 
 
@@ -43,7 +43,7 @@ final <- judges_appointments %>%
   geom_linerange(aes(x = as_date(nomination_date, format = "%m/%d/%Y"),
                      ymin = 1, ymax = 2, color = president_party), alpha = .2) +
   geom_text(data = uspres, aes(x = mid, y = 2.1, label = President), 
-            angle = 90, size = 3, hjust = 0, family = font) + 
+            angle = 90, size = 4, hjust = 0, family = font, fontface = "bold") + 
   geom_linerange(data = uspres, aes(x = start, ymin = 2, ymax = 2.5), linetype = "dashed", linewidth = .2, alpha = .3) +
   geom_linerange(data = uspres, aes(x = end, ymin = 2, ymax = 2.5), linetype = "dashed", linewidth = .2, alpha = .3) +
   scale_color_manual(values = c("Democratic" = "navyblue",
@@ -63,7 +63,7 @@ final <- judges_appointments %>%
         legend.text = element_text(size = 15, family = font),
         legend.justification='left',
         legend.key.height = unit(3, 'mm'),
-        legend.spacing = unit(3, 'mm'),
+        legend.key.width = unit(3, "mm"),
         panel.grid = element_blank(),
         axis.line.y = element_blank(),
         axis.title.y = element_blank(),
