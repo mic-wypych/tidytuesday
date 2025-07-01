@@ -11,9 +11,12 @@ font <- "Ubuntu"
 font_add_google(font)
 showtext_auto()
 
+
+#data on EU gas prices: https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx
+
 weekly_gas_prices <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-01/weekly_gas_prices.csv')
 
-eu_gas_prices <- read_excel("C:/Users/wypyc/Documents/GitHub/tidytuesday/2025/2025-07-01/Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx", sheet = 1, range = "A3:C1023")
+eu_gas_prices <- read_excel("Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx", sheet = 1, range = "A3:C1023")
 
 eu_gas_prices$price_eu <- eu_gas_prices$`1000 l`/1000
 
@@ -29,7 +32,6 @@ my_theme <- function() {
           plot.title.position = "plot")
 }
 
-#IDEA 2: COMPARE PRICES IN EU AND USA AS AFFECTED BY THE INVASION
 
 title <- "US and EU gasoline weekly prices after the Russian invasions on Ukraine"
 subtitle <- str_wrap("Russia attacked Ukraine twice in the past decade. The first attack came in 2014 with annexation of Crimea and parts of Donetsk and Luhansk and the second time in 2022 with attacks on Kiev, Kharkov, Eastern and Southern Ukraine. 
@@ -72,9 +74,6 @@ plot_us <- weekly_gas_prices %>%
   labs(title = title, subtitle = subtitle, x = NULL, y = NULL) +
   my_theme()
 
-  
-plot_us
-#data on EU gas prices: https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx
 
 eu_max_price <- eu_gas_prices %>%
   filter(Date > as.Date("2012-12-01")) %>%
