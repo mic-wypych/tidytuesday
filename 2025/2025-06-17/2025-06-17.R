@@ -136,6 +136,9 @@ final <- p_time + p_cat +
                                                plot.title = element_text(size = 40, family = font),
                                                plot.subtitle = element_text(size = 25, lineheight = .5, family = font),
                                                plot.margin = margin(t=10,r = 20, b = 10, l = 20)))
+
+ggsave("apis.png", final, width = 10, height = 6, dpi = 300)
+
 final +
   ggview::canvas(10, 6)
 
