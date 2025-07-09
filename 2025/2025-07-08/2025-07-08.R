@@ -41,8 +41,7 @@ for(color in all_colors) {
       coord_radial() +
       labs(title = paste0(picked_color, " and ", subset_colors[.y])) +
       theme(text = element_text(family = font),
-            plot.title = element_text(family = font, size = 20),
-            strip.text = element_text(family = font, hjust = .5)
+            plot.title = element_text(family = font, size = 20, hjust = .5)
             )
     })
   
@@ -50,6 +49,6 @@ for(color in all_colors) {
 }
 
 final <- (plot_spacer() | full_list[[1]] | full_list[[2]] | full_list[[3]] | full_list[[4]]) / (plot_spacer() | full_list[[6]] | full_list[[7]] | full_list[[8]]) /  (plot_spacer() |  plot_spacer() | full_list[[11]] | full_list[[12]]) /  (plot_spacer() | plot_spacer() | plot_spacer() | full_list[[16]]) +
-  plot_annotation(title = title, caption = caption, theme = theme(plot.title = element_text(family = font, size = 40)))
+  plot_annotation(title = title, caption = caption, theme = theme(plot.title = element_text(family = font, size = 50, hjust = .5)))
 
 ggsave("C:/Users/wypyc/Desktop/xkcd_colors.png", final, width = 8, height = 8)
