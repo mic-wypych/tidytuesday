@@ -7,7 +7,7 @@ font <- "Poppins"
 font_add_google(font)
 showtext_auto()
 
-answers showtextanswers <- fread('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/answers.csv')
+answers <- fread('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/answers.csv')
 color_ranks <- fread('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/color_ranks.csv')
 users <- fread('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/users.csv')
 
@@ -23,7 +23,6 @@ caption <- "Tidytuesday 8.07.2025 | data: xkcd color survey | Michał Wypych"
 
 
 #### full dataset
-
 
 full_list <- list()
 
@@ -48,7 +47,7 @@ for(color in all_colors) {
   full_list <- append(full_list, plots)
 }
 
-final <- (plot_spacer() | full_list[[1]] | full_list[[2]] | full_list[[3]] | full_list[[4]]) / (plot_spacer() | full_list[[6]] | full_list[[7]] | full_list[[8]]) /  (plot_spacer() |  plot_spacer() | full_list[[11]] | full_list[[12]]) /  (plot_spacer() | plot_spacer() | plot_spacer() | full_list[[16]]) +
+final <- (plot_spacer() | full_list[[1]] | full_list[[2]] | full_list[[3]] | full_list[[4]] | plot_spacer()) / (plot_spacer() | full_list[[6]] | full_list[[7]] | full_list[[8]]| plot_spacer()) /  (plot_spacer() |  plot_spacer() | full_list[[11]] | full_list[[12]]| plot_spacer()) /  (plot_spacer() | plot_spacer() | plot_spacer() | full_list[[16]]| plot_spacer()) +
   plot_annotation(title = title, caption = caption, theme = theme(plot.title = element_text(family = font, size = 50, hjust = .5)))
 
 ggsave("C:/Users/wypyc/Desktop/xkcd_colors.png", final, width = 8, height = 8)
