@@ -20,7 +20,7 @@ final_four_df <- euroleague_basketball %>%
   mutate(Years_of_FinalFour_Appearances = as.numeric(Years_of_FinalFour_Appearances)) %>%
   drop_na(Years_of_FinalFour_Appearances)
 
- c("#ad1457", "#e881a6", "#b52dc8", "#264653", "#8bc34a", "#009688", "#1565c0", "#b91327", "#2d0983")
+
 color_pal <-c("#b96784", "#88375d","#9bb6bd","#009688", "#755687","#4a2d5e", "#eb676c","#aa2041", "#b52dc8")
 legend_df <- data.frame(color_pal, Team = unique(final_four_df$Team )) 
 
@@ -39,7 +39,7 @@ final_four <- final_four_df %>%
         axis.line.x = element_line(color = "black", linewidth = 1.1),
         axis.text.y = element_blank(),
         axis.text.x = element_text(size = 25, family = font_2, hjust = 0, vjust = 0,
-        angle= 90 - 180/ length(unique(final_four_df$Years_of_FinalFour_Appearances)) * seq_along(final_four_df$Years_of_FinalFour_Appearances)),
+        angle= 180 - 180/ length(unique(final_four_df$Years_of_FinalFour_Appearances)) * seq_along(final_four_df$Years_of_FinalFour_Appearances)),
         plot.margin = margin(0,0,0,0),
         panel.grid.minor = element_blank(),
         panel.grid.major.y = element_blank(),
