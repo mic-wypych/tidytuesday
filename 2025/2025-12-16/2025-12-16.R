@@ -100,24 +100,31 @@ df_status <- data.frame(
   x = c(1,1,1),
   y = c(1,3,5),
   status = c("Existing", "Removed", "Unknown"),
-  icon = c("")
+  icon = c('\uf015', '\uf15b', '\uf007')
 )
 
 df_type <- data.frame(
   x = rep(1, 6),
   y = 8:13,
-  type = unique(roundabouts_clean$type),
-  icon = c(fontawesome::fa("crosshairs"),fontawesome::fa("skull-crossbones"),fontawesome::fa("cross"))
+  type = unique(roundabouts_clean$type))
+
+
+df_aproaches <- data.frame(
+  x = rep(1,9),
+  y = 16:24,
+  n = 1:9
 )
 
-
+# need to work on the icons
+#then I can make the legend, add proper title and subtitle
+#and combine with patchwork into final plot
 df_legend |>
   ggplot(aes(x = x, y = y, label = label)) +
   geom_text(vjust = 0, nudge_y = -.5) +
   geom_line(aes(x = x, y = y, group = y), color = "grey60", linetype = "dashed") +
-  geom_point(data = df_status, aes(x =x ,y = y, shape = status), inherit.aes = FALSE) +
+  geom_text(data = df_status, aes(x =x ,y = y, label = icon), inherit.aes = FALSE) +
   geom_text(data = df_status, aes(x =x ,y = y, label = status), hjust = -.1) +
-  geom_image(data = df_type, aes(x =x ,y = y, label = icon), inherit.aes = FALSE) +
+  geom_point(data = df_type, aes(x =x ,y = y, shape = type), inherit.aes = FALSE) +
   geom_text(data = df_type, aes(x =x ,y = y, label = type), hjust = -.1) +
   coord_radial(expand = FALSE, inner.radius = .2) +
   theme_minimal() +
