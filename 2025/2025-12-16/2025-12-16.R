@@ -7,10 +7,11 @@ library(countrycode)
 library(showtext)
 library(patchwork)
 library(grid)
-
+library(ggnewscale)
 font <- "Lato"
 font_add_google(font)
-font_add("fa", "2025/2025-12-16/fa_free_solid_900.otf")
+#you need to download solid free fa fonts from fontawesome website
+font_add("fa", "fa_free_solid_900.otf")
 showtext_auto()
 # load data ----
 
@@ -33,17 +34,17 @@ title <- "Roundabouts around the world"
 
 title_note <- textGrob(
   "Roundabouts around the world",just = "left", x = 0,
-  gp = gpar( fontsize   = 50,
+  gp = gpar( fontsize   = 60,
     fontface = "bold", fontfamily = font, lineheight = .3)
 )
 
 #subtitle
 subtitle_note <- textGrob(
   stringr::str_wrap("The plot shows information on roundabouts across countries. The each circle shows number of roundabouts in a given country and category.
-             The innermost ring shows types of roundabouts: ... .
+             The innermost ring shows types of roundabouts: rotary, roundabout, signalized, traffic calming circle or other/unknown.
              The middle ring shows number of roundabouts with different status: existing, removed or unknown.
              The outermost ring shows number of approaches from 1 to XX.
-             USA and France have the largest diversity of approaches while USA and Canada have the largest diversity of types. USA also has the most existing and removed roundabouts.", 80),
+             USA and France have the largest diversity of approaches while USA and Canada have the largest diversity of types. USA also has the most existing and removed roundabouts.", 120),
   just = "left", x = 0,
   gp = gpar(fontface = "bold", fontsize = 20, fontfamily = font,lineheight = .5)
 )
@@ -73,7 +74,7 @@ type_count <-roundabouts_clean |>
   ),
   icon = case_when(
     type == "Rotary" ~ "\uf1b9",
-    type == "Roundabout" ~ "\uf018",
+    type == "Roundabout" ~ "\uf0e2",
     type == "Signalized Roundabout/Circle" ~ "\uf637",
     type == "Traffic Calming Circle" ~ "\uf207",
     type == "Other" ~ "\uf0d1",
@@ -94,25 +95,20 @@ status_count <-roundabouts_clean |>
     status == "Unknown" ~ 10
   ),
 icon = case_when(
-    status == "Existing" ~ "\uf107",
+    status == "Existing" ~ "\uf00c",
     status == "Removed" ~ "\u58",
-    status == "Unknown" ~ "\uf037"
+    status == "Unknown" ~ "\u3f"
   ))
-
-#make a small legend
-#that explains each circle
-
-#TODO
-# need to work on the icons
-
 
 
 #legend
 status_count_usa <- status_count |>
-  filter(country == "Canada")
+  filter(country == "Canada") |>
+  mutate(status = paste0(" ", status))
 
 type_count_usa <- type_count |>
-  filter(country == "Canada")
+  filter(country == "Canada") |>
+  mutate(type = paste0(" ", type))
 
 approaches_usa <- roundabouts_clean |>
   filter(country != "Kosovo") |>
@@ -123,22 +119,24 @@ approaches_usa <- roundabouts_clean |>
   count(approaches)
 
 # add names for layers: type, status and number of approaches
-multiplier <- 3
+multiplier <- 1.5
 
 legend_plot <- type_count_usa |>
   ggplot() +
-  geom_text(aes(x = .5, y = type_recoded*multiplier, size = n, label = icon), family = "fa", color ="#8f2d56", alpha = .6) +
-  geom_text(aes(x = .5, y = type_recoded*multiplier, label = type), hjust = -.15, family = font, size = 3) +
-  geom_text(data = status_count_usa, aes(x = .5, y = status_recoded*multiplier, size = n, label = icon), family ="fa", color = "#8f2d56", alpha = .6) +
-  geom_text(data = status_count_usa,aes(x = .5, y = status_recoded*multiplier, label = status), hjust = -.15, family = font, size = 3) +
-  geom_count(data = approaches_usa, aes(x = .5, y = approaches*multiplier), color = "#8f2d56", alpha = .6) +
-  geom_text(data = approaches_usa,aes(x = .5, y = approaches*multiplier, label = approaches - 11), hjust = -.25, family = font, size = 3) +
+  geom_text(aes(x = .5, y = type_recoded*multiplier, size = n, label = icon), family = "fa", color ="#d81159") +
+  geom_text(aes(x = .5, y = type_recoded*multiplier, label = type), hjust = 0, family = font, size = 6, lineheight = .5) +
+  geom_text(data = status_count_usa, aes(x = .5, y = status_recoded*multiplier, size = n, label = icon), family ="fa", color = "#d81159") +
+  geom_text(data = status_count_usa,aes(x = .5, y = status_recoded*multiplier, label = status), hjust = 0, family = font, size = 6) +
+  scale_size_continuous(range = c(4,4)) +
+  new_scale("size") +
+  geom_count(data = approaches_usa, aes(x = .5, y = approaches*multiplier), color = "#d81159") +
+  geom_text(data = approaches_usa,aes(x = .5, y = approaches*multiplier, label = c("min: 1", " ", " ", " ", "max: 12")), hjust = 0, family = font, size = 6) +
   geom_line(data = data.frame(x = c(0,1, 0,1, 0, 1), y = c(7,7, 11,11, 20,20)*multiplier), aes(x = x, y = y, group = y), color = "grey60", linewidth = .2, linetype = "dashed") +
-  geom_text(data = data.frame(x = c(.5,.5,.5), y = c(0,9, 16)*multiplier, label = c("Type", "Status", "Number of\napproaches")),
+  geom_text(data = data.frame(x = c(.5,.5,.5), y = c(4,9, 16)*multiplier, label = c("Type", "Status", "Number of\napproaches")),
             aes(x = x, y = y, label = label), nudge_x = -.5,
-             inherit.aes = FALSE, family = font, size = 4, lineheight = .5) +
-  scale_size_continuous(range = c(2, 5)) +
-  coord_radial(expand = FALSE, start = -.5*pi, end = .5*pi) +
+             inherit.aes = FALSE, family = font, size = 6.5, lineheight = .3) +
+  scale_size_continuous(range = c(.5, 1)) +
+  coord_radial(expand = FALSE, start = -.5*pi, end = .5*pi, inner.radius = .01) +
   theme_minimal() +
   labs(x = NULL, y = NULL) +
   theme(axis.text = element_blank(),
@@ -149,7 +147,7 @@ legend_plot <- type_count_usa |>
   strip.background = element_blank(),
   strip.text = element_blank(),
   axis.ticks = element_blank(),
-  axis.title = element_blank(), aspect.ratio = .5)
+  axis.title = element_blank())
 
 legend_plot
 ## main plot ----
@@ -161,12 +159,14 @@ main_plot <- roundabouts_clean |>
          approaches = 12 + approaches) |>
   ggplot(aes(x = country, y = approaches, color = continent)) +
   geom_count(alpha = .5) +
+  scale_size_continuous(range = c(1, 5)) +
+  new_scale("size") +
   geom_text(aes(x = country, y = 26, label = country), angle = 90, hjust = 0, color = "black", size = 6) +
-  geom_line(aes(x = country, y = 25, color = continent, group = continent), inherit.aes = FALSE, linewidth = 1, lineend = "round") +
+  geom_line(aes(x = country, y = 25.6, color = continent, group = continent), inherit.aes = FALSE, linewidth = 1, lineend = "round") +
   geom_line(aes(x = country, y = 11, group = 1),color = "grey60", inherit.aes = FALSE, linewidth = .5, linetype = "dashed") +
   geom_text(data = type_count, aes(x = country, y = type_recoded, size = n, color = continent, label = icon), family = "fa", inherit.aes = FALSE, alpha = .7) +
   geom_line(aes(x = country, y = 7, group = 1),color = "grey60", inherit.aes = FALSE, linewidth = .5, linetype = "dashed") +
-  geom_text(data = status_count, aes(x = country, y = status_recoded, size = n, label = icon), family = "fa", inherit.aes = FALSE, alpha = .7) +
+  geom_text(data = status_count, aes(x = country, y = status_recoded, size = n*1.2, label = icon, color = continent), family = "fa", inherit.aes = FALSE, alpha = .7) +
   coord_radial(inner.radius = .2, expand = TRUE, rotate.angle = TRUE) +
   guides(
     theta = guide_axis_theta(angle = 90),
@@ -175,7 +175,7 @@ main_plot <- roundabouts_clean |>
   labs(x = NULL, y = NULL) +
   scale_y_continuous(labels = NULL ,expand = FALSE) +
   scale_color_manual(values = palette2) +
-  scale_size_continuous(range = c(3, 6)) +
+  scale_size_continuous(range = c(3, 10)) +
   theme_minimal() +
   theme(legend.position = "none",
         text = element_text(family = font),
@@ -183,6 +183,7 @@ main_plot <- roundabouts_clean |>
         plot.title.position = "plot",
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_line(color = "grey80", linewidth = .3),
       plot.margin = margin(0,0,0,0),
   panel.spacing = unit(0, "pt"),
   strip.background = element_blank(),
@@ -202,13 +203,13 @@ canvas <- ggplot() + theme_void() + theme(plot.margin = margin(0,0,0,0),
 
 final <- canvas +
   inset_element(wrap_elements(full = main_plot), 
-                left = .1, bottom = 0, right = .9, top = .8, align_to = "full") +
+                left = .1, bottom = 0, right = .9, top = .75, align_to = "full") +
   inset_element(wrap_elements(full = legend_plot), 
-                left = 0.7, bottom = .7, right = 1, top = 1, align_to = "full") +
+                left = 0.65, bottom = .75, right = 1, top = 1, align_to = "full") +
   inset_element(wrap_elements(full = title_note),
                 left =.05, bottom = .9, right = .55, top = .97, align_to = "full") +
-  # inset_element(wrap_elements(full = subtitle_note),
-  #               left = .05, bottom = .75, right = .55, top = .9, align_to = "full") +
+   inset_element(wrap_elements(full = subtitle_note),
+                 left = .05, bottom = .75, right = .65, top = .9, align_to = "full") +
   plot_annotation(caption = caption, theme = ggplot2::theme(plot.margin = margin(0,0,0,0),
                                      plot.caption = element_text(family = font, size = 20)))
 
